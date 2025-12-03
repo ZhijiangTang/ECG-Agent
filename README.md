@@ -1,10 +1,16 @@
 # ECG Benchmark
-Author's implementation of *A Comprehensive Benchmark for Electrocardiogram Time-Series* [[📄ACM MM 2025]](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729) [[📄ARXIV]](https://arxiv.org/abs/2507.14206) [[⭐CODE]](https://github.com/ZhijiangTang/ECG-Benchmark) [[📂DATA]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing)
+Author's implementation of *A Comprehensive Benchmark for Electrocardiogram Time-Series* 
+[[📄ACM MM 2025]](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729) [[📄ARXIV]](https://arxiv.org/abs/2507.14206) [[⭐CODE]](https://github.com/ZhijiangTang/ECG-Benchmark) [[📂DATA]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing)
 
 ### Introduction
+Electrocardiogram (ECG) is crucial for assessing cardiac health and diagnosing various diseases. Given its time-series format, ECG data is often incorporated into pre-training datasets for large-scale time-series model training. However, existing studies often overlook its unique characteristics and specialized downstream applications, which differ significantly from other time-series data, leading to an incomplete understanding of its properties.
+In this paper, we present an in-depth investigation of ECG signals and establish a comprehensive benchmark, which includes (1) categorizing its downstream applications into four distinct evaluation tasks, (2) identifying limitations in traditional evaluation metrics for ECG analysis, and introducing a novel metric; (3) benchmarking SOTA time-series models and proposing a new architecture.
+Extensive experiments demonstrate that our proposed benchmark is comprehensive and robust. The results validate the effectiveness of the proposed metric and model architecture, which establish a solid foundation for advancing research in ECG signal analysis.
+
 
 ### Updates
 :triangular_flag_on_post: **News** (2025.12) Release benchmark [📂DATA](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing).
+
 :triangular_flag_on_post: **News** (2025.7) Accepted by [ACM MM 2025](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729).
 
 ### TODO
@@ -20,9 +26,13 @@ Author's implementation of *A Comprehensive Benchmark for Electrocardiogram Time
 [[Google Drive]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing) [[Quark Drive]](https://pan.quark.cn/s/634a9fcfd25a)
 
 We define a set of evaluations designed for the broad range of medical applications of ECG, which include four downstream tasks:
+
 1️⃣ **Classification** for disease diagnosis and event prediction,
+
 2️⃣ **Detection** for key waveform (e.g., P-wave) localization,
+
 3️⃣ **Forecasting** for ECG dynamics prediction,
+
 4️⃣ **Generation** for maternal-fetal ECG separation.
 ![benchmark](image/benchmark.png)
 
