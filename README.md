@@ -1,5 +1,6 @@
 # ECG Benchmark
 Author's implementation of *A Comprehensive Benchmark for Electrocardiogram Time-Series* 
+
 [[📄ACM MM 2025]](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729) [[📄ARXIV]](https://arxiv.org/abs/2507.14206) [[⭐CODE]](https://github.com/ZhijiangTang/ECG-Benchmark) [[📂DATA]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing)
 
 ### Introduction
@@ -9,18 +10,36 @@ Extensive experiments demonstrate that our proposed benchmark is comprehensive a
 
 
 ### Updates
-:triangular_flag_on_post: **News** (2025.12) Release benchmark [📂DATA](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing).
+:triangular_flag_on_post: **News** (2025.12) Release evaluation code and our PSSM [[🧭Quick Start]](#quick-start).
 
-:triangular_flag_on_post: **News** (2025.7) Accepted by [ACM MM 2025](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729).
+:triangular_flag_on_post: **News** (2025.12) Release benchmark [[📂DATA]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing).
+
+:triangular_flag_on_post: **News** (2025.7) Accepted by [[📄ACM MM 2025]](https://dl.acm.org/doi/pdf/10.1145/3746027.3754729).
 
 ### TODO
-- [ ] Release evaluation code
-- [ ] Release our SOTA model PSSM
-- [ ] Release training data and code
+- [ ] Release pre-training data and code
 - [ ] Release large time-series models pre-trained in ECG
 
 
 ### Quick Start
+##### Step 0. Prepare Environment
+Download [[📂DATA]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing) to ```Data``` folder, download [[🤖FFD]](https://drive.google.com/drive/folders/1s7KUgkWNOkT0f8rB9sBjeq9u1snWWvuo) model (for evaluation) to ```checkpoints``` folder.
+```shell
+pip install -r requirements.txt
+```
+
+##### Step 1. Run evaluation
+```shell
+python val_run.py \
+    model=PSSM \
+    data=ADFECGDB
+```
+
+#### Evaluate Your Custom Model
+The ECG-Benchmark framework is shown below. You can follow the [[🧭Tutorial]](tutorial/val_customized_model.ipynb) to evaluate your own model.
+
+![framework](image/framework.png)
+
 
 ### Benchmark
 [[Google Drive]](https://drive.google.com/drive/folders/1_BGJd7fPOPBFjB98Opuo5dir-nc-U1Ww?usp=sharing) [[Quark Drive]](https://pan.quark.cn/s/634a9fcfd25a)
@@ -66,8 +85,6 @@ These tasks provide a comprehensive framework for evaluation, and the following 
 | Generation     | **PTBXL** [[📕Paper]](https://physionet.org/content/ptb-xl/1.0.3/)                    | Noise ECG    | 262044   | 21837     | 12      | 500Hz     |
 | Generation     | **SST** [[📕Paper]](https://physionet.org/content/senssmarttech/1.0.0/)                     | PCG          | 6760     | 338       | 9       | 1000Hz    |
 
-
-### Our Model
 
 
 ### Citation

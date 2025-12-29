@@ -1,0 +1,23 @@
+defaults:
+  - _self_
+
+task : Detection
+data : 
+  _target_ : dataset.finetune_dataset.DetectionFinetuneDataset
+  input_length : 500
+  criterion : BCELoss
+  epochs : 100
+  dataset_name : CPSC2020
+  dataset_path : Data/Detection
+  dataset_save : ${data.task}
+  dataset_balance : 0
+
+  # Useless for detection
+  predict_length : 100
+
+head : 
+  _target_ : models.head.DetectionFinetune
+  hid_mlp : "[1024]"
+
+validation :
+  _target_ : validation.Detection.ValDetection

@@ -1,0 +1,8 @@
+# mimic_perform_af
+
+defaults:
+  - Classification
+  - _self_
+
+data : 
+  dataset_name : AF

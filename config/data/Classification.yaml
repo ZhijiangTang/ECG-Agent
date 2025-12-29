@@ -1,0 +1,23 @@
+defaults:
+  - _self_
+
+task : Classification
+data : 
+  _target_ : dataset.finetune_dataset.ClassificationFinetuneDataset
+  input_length : 500
+  criterion : CrossEntropyLoss
+  epochs : 100
+  dataset_name : AF
+  dataset_path : Data/Classification
+  dataset_save : ${data.task}
+  dataset_balance : undersample
+
+  # Useless for classification
+  predict_length : 100
+
+head : 
+  _target_ : models.head.ClassificationFinetune
+  hid_mlp : "[1024]"
+
+validation :
+  _target_ : validation.Classification.ValClassification

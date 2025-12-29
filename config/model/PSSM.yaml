@@ -1,0 +1,17 @@
+defaults:
+  - _self_
+
+_name_ : PSSM
+_target_: models.PSSM.PSSM
+input_channels: 1
+d_model: 32
+oa_mlp_d_model : ${input_length}
+oo_mlp_d_model : 1
+
+patch_len : 1
+is_frozen : 0
+
+model_root_path : checkpoints/PSSM
+model_save_name : best_model.pth
+
+is_load_pretrain_model : 1
