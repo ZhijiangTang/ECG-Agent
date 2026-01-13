@@ -4,3 +4,8 @@ wandb/
 checkpoints/
 Data/
 multirun/
+gradio_tmp/
+*.csv
+*.png
+test_report.md
+tmp*
