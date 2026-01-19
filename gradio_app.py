@@ -101,7 +101,7 @@ def load_sample_file(sample_key, state):
 
 def load_signal(files, state):
     if not files:
-        return None, gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), "Please upload files.", state
+        return None, gr.update(visible=False), gr.update(visible=False), gr.update(visible=False), "Please upload files (CSV or WFDB).", state
     
     try:
         # Update ModelWrapper to handle .mat if not already (it uses shutil.copy, so it's fine as long as we extend extensions check)
@@ -289,14 +289,24 @@ def run_analysis(task, start_index, state):
         return None, f"Error: {str(e)}", None
 
 # Gradio Interface
+logo_path = os.path.join(os.path.dirname(__file__), "image", "logo-ucas.png")
+
 with gr.Blocks(title="ECG Analysis Agent") as demo:
     state = gr.State({})
     
-    gr.Markdown("# ECG Analysis Agent")
+    # Header with logo and title
+    with gr.Row():
+        with gr.Column(scale=1, min_width=150):
+            gr.Image(value=logo_path, show_label=False, container=False, height=80, interactive=False)
+        with gr.Column(scale=16):
+            gr.Markdown("# ECG Analysis Agent")
+    
     gr.Markdown("1. Load Sample OR Upload Files. 2. Select 500-point segment. 3. Run Analysis.")
     
     with gr.Row():
         with gr.Column(scale=1):
+            # Logo in sidebar
+            # gr.Image(value=logo_path, show_label=False, container=False, height=60, interactive=False)
             gr.Markdown("### Data Loading")
             with gr.Tab("Load Sample"):
                 sample_dropdown = gr.Dropdown(
@@ -309,6 +319,7 @@ with gr.Blocks(title="ECG Analysis Agent") as demo:
                 file_input = gr.File(label="Upload Files", file_count="multiple", file_types=[".csv", ".dat", ".hea", ".mat"])
                 load_btn = gr.Button("Load & Preprocess", variant="primary")
             
+        
             status_info = gr.Textbox(label="Status", interactive=False)
             
             gr.Markdown("### Task Selection")
